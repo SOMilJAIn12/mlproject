@@ -28,8 +28,12 @@ def predict_datapoints():
         print(pred_df)
 
         predict_pipeline=PredictPipeline()
+        
         results=predict_pipeline.predict(pred_df)
-        return render_template('home.html',results=results[0])
+        final_result = round(results[0], 1)
+
+        return render_template('home.html', results=final_result)
+        
     
 
 if __name__=="__main__":
